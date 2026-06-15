@@ -1,7 +1,0 @@
-from pydantic import BaseModel
-
-
-class RoleCreate(BaseModel):
-    name: str
-    description: str | None = None
-    is_active: bool = True
