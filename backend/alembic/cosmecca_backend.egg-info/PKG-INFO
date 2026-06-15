@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: cosmecca-backend
+Version: 0.1.0
+Summary: Production-ready FastAPI backend boilerplate for Cosmecca.
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: aiosqlite<1.0.0,>=0.20.0
+Requires-Dist: asyncpg<1.0.0,>=0.30.0
+Requires-Dist: fastapi<1.0.0,>=0.115.0
+Requires-Dist: passlib[bcrypt]<2.0.0,>=1.7.4
+Requires-Dist: pydantic[email]<3.0.0,>=2.9.0
+Requires-Dist: pydantic-settings<3.0.0,>=2.6.0
+Requires-Dist: python-jose[cryptography]<4.0.0,>=3.3.0
+Requires-Dist: sqlalchemy<3.0.0,>=2.0.36
+Requires-Dist: uvicorn[standard]<1.0.0,>=0.32.0
+Provides-Extra: dev
+Requires-Dist: httpx<1.0.0,>=0.28.0; extra == "dev"
+Requires-Dist: pytest<9.0.0,>=8.3.0; extra == "dev"
+Requires-Dist: pytest-asyncio<1.0.0,>=0.24.0; extra == "dev"
+Requires-Dist: ruff<1.0.0,>=0.7.0; extra == "dev"
+
+# Cosmecca Backend
+
+FastAPI boilerplate with:
+
+- FastAPI application factory
+- SQLAlchemy 2.0 async engine/session
+- Pydantic v2 settings loaded from `.env`
+- Versioned API router and health endpoint
+
+## Quick start
+
+```bash
+cd backend
+python -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
+cp .env.example .env
+uvicorn app.main:app --reload
+```
+
+The API health check is available at `GET /api/v1/health`.
